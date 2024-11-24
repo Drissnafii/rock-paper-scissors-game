@@ -11,21 +11,23 @@ function playRound(myMove) {
     }
 
     let result = '';
-    if (myMove === computerMove) {
-        result = 'Tie.';
-    } else if (myMove === 'rock' && computerMove === 'paper') {
-        result = 'You lose.';
-    } else if (myMove === 'rock' && computerMove === 'scissors') {
-        result = 'You win.';
-    } else if (myMove === 'paper' && computerMove === 'rock') {
-        result = 'You win.';
-    } else if (myMove === 'paper' && computerMove === 'scissors') {
-        result = 'You lose.';
-    } else if (myMove === 'scissors' && computerMove === 'rock') {
-        result = 'You lose.';
-    } else if (myMove === 'scissors' && computerMove === 'paper') {
-        result = 'You win.';
+    switch (true) {
+        case (myMove === computerMove):
+            result = 'Tie.';
+            break;
+        case (myMove === 'rock' && computerMove === 'paper'):
+        case (myMove === 'scissors' && computerMove === 'rock'):
+            result = 'You lose.';
+            break;
+        case (myMove === 'rock' && computerMove === 'scissors'):
+        case (myMove === 'paper' && computerMove === 'rock'):
+        case (myMove === 'scissors' && computerMove === 'paper'):
+            result = 'You win.';
+            break;
+        default:
+            result = 'Invalid move.';
     }
+    
 
     alert(`You picked ${myMove}. Computer picked ${computerMove}. Result: ${result}`);
 }
