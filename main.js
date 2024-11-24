@@ -4,12 +4,11 @@ function playRound(myMove) {
 
     if (randomNumber >= 0 && randomNumber < 1/3) {
         computerMove = 'rock';
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2/3) {
+    } else if (randomNumber >= 1/3 && randomNumber < 2/3) {
         computerMove = 'paper';
     } else {
         computerMove = 'scissors';
     }
-
 
     let result = '';
     if (myMove === computerMove) {
@@ -22,6 +21,10 @@ function playRound(myMove) {
         result = 'You win.';
     } else if (myMove === 'paper' && computerMove === 'scissors') {
         result = 'You lose.';
+    } else if (myMove === 'scissors' && computerMove === 'rock') {
+        result = 'You lose.';
+    } else if (myMove === 'scissors' && computerMove === 'paper') {
+        result = 'You win.';
     }
 
     alert(`You picked ${myMove}. Computer picked ${computerMove}. Result: ${result}`);
