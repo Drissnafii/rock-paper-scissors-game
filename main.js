@@ -10,6 +10,7 @@ function playRound(myMove) {
         computerMove = 'scissors';
     }
 
+
     let result = '';
     if (myMove === computerMove) {
         result = 'Tie.';
@@ -17,6 +18,10 @@ function playRound(myMove) {
         result = 'You lose.';
     } else if (myMove === 'rock' && computerMove === 'scissors') {
         result = 'You win.';
+    } else if (myMove === 'paper' && computerMove === 'rock') {
+        result = 'You win.';
+    } else if (myMove === 'paper' && computerMove === 'scissors') {
+        result = 'You lose.';
     }
 
     alert(`You picked ${myMove}. Computer picked ${computerMove}. Result: ${result}`);
